@@ -32,3 +32,22 @@ public class Biblioteca {
     public void eliminarLibro(String isbn) {
         libros.removeIf(l -> l.isbn.equals(isbn));
     }
+public void registrarUsuario(Usuario u) {
+        for (Usuario user : usuarios) {
+            if (user.documento.equals(u.documento)) {
+                System.out.println("Documento repetido");
+                return;
+            }
+        }
+        usuarios.add(u);
+    }
+
+    public Usuario buscarUsuario(String doc) {
+        for (Usuario u : usuarios)
+            if (u.documento.equals(doc)) return u;
+        return null;
+    }
+
+    public void listarUsuarios() {
+        for (Usuario u : usuarios) u.mostrar();
+    }
