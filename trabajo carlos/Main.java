@@ -34,3 +34,58 @@ Usuario log = b.buscarUsuario(doc);
 
             op = sc.nextInt();
             sc.nextLine();
+switch (op) {
+                case 1:
+                    System.out.print("ISBN: ");
+                    String isbn = sc.nextLine();
+                    System.out.print("Titulo: ");
+                    String t = sc.nextLine();
+                    System.out.print("Autor: ");
+                    String a = sc.nextLine();
+                    System.out.print("Año: ");
+                    int anio = sc.nextInt();
+                    sc.nextLine();
+
+                    b.registrarLibro(new Libro(isbn, t, a, anio));
+                    break;
+
+                case 2:
+                    b.listarLibros();
+                    break;
+
+                case 3:
+                    System.out.print("Doc: ");
+                    String d = sc.nextLine();
+                    System.out.print("Nombre: ");
+                    String n = sc.nextLine();
+                    System.out.print("Tipo: ");
+                    String tipo = sc.nextLine();
+                    System.out.print("Password: ");
+                    String p = sc.nextLine();
+
+                    b.registrarUsuario(new Usuario(d, n, tipo, p));
+                    break;
+
+                case 4:
+                    b.listarUsuarios();
+                    break;
+
+                case 5:
+                    System.out.print("ISBN: ");
+                    String is = sc.nextLine();
+                    System.out.print("Doc usuario: ");
+                    String du = sc.nextLine();
+
+                    b.prestar(is, du, log);
+                    break;
+
+                case 6:
+                    System.out.print("ISBN: ");
+                    String dev = sc.nextLine();
+                    b.devolver(dev);
+                    break;
+            }
+
+        } while (op != 0);
+    }
+}
